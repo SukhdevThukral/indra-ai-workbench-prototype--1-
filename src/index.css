@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* ------- INDRA AI theme (Tailwind v4 CSS-first config) ------- */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-navy-950: #071329;
+  --color-navy-900: #0b1f3f;
+  --color-navy-800: #12294f;
+  --color-navy-700: #1b3a6b;
+
+  --color-brand-400: #5b8cff;
+  --color-brand-500: #2e63ff;
+  --color-brand-600: #1d4ed8;
+
+  --color-ink-soft: #50607e;
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-float-slow: float-slow 8s ease-in-out infinite;
+  --animate-pulse-dot: pulse-dot 2.2s ease-in-out infinite;
+  --animate-pop-in: pop-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+  --animate-ring-spin: ring-spin 9s linear infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.45); }
+  50% { box-shadow: 0 0 0 5px rgba(16, 185, 129, 0); }
+}
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(220%); }
+}
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f6f9fe;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(46, 99, 255, 0.18);
+}
+
+/* Slim scrollbars inside panels */
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* ------- Shared building blocks ------- */
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(203, 213, 225, 0.75);
+  border-radius: 1.25rem;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 16px 40px -24px rgba(11, 31, 63, 0.22);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 9999px;
+  padding: 0.25rem 0.625rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* Layered light mesh background */
+.mesh-bg {
+  background:
+    radial-gradient(62rem 42rem at 78% -12%, rgba(46, 99, 255, 0.09), transparent 62%),
+    radial-gradient(52rem 38rem at 6% 10%, rgba(6, 182, 212, 0.08), transparent 60%),
+    radial-gradient(48rem 42rem at 96% 88%, rgba(124, 58, 237, 0.07), transparent 62%),
+    linear-gradient(#f8fbff, #f5f8fe 60%, #f3f7fd);
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(11, 31, 63, 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Thin gradient ring used around the processing logo */
+.conic-ring {
+  background: conic-gradient(from 0deg, #2e63ff, #06b6d4, #8b5cf6, transparent 72%, #2e63ff);
+}
